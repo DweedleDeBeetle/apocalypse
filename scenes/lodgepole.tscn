@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://cin740gqydi7s"]
+
+[ext_resource type="ArrayMesh" uid="uid://soda8shrwdcf" path="res://assets/lodgepole.obj" id="1_vwj4j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kc68"]
+albedo_color = Color(0.262089, 0.145555, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rf1hr"]
+albedo_color = Color(0, 0.175751, 0.0699129, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htkg4"]
+albedo_color = Color(0, 0.176471, 0.0705882, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3is3v"]
+albedo_color = Color(0, 0.176471, 0.0705882, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8mii"]
+albedo_color = Color(0, 0.176471, 0.0705882, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_en2xy"]
+albedo_color = Color(0, 0.176471, 0.0705882, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_x8gro"]
+height = 13.2055
+radius = 0.607882
+
+[node name="lodgepole" type="StaticBody3D"]
+
+[node name="Lodgepole" type="MeshInstance3D" parent="."]
+visibility_range_end = 40.0
+mesh = ExtResource("1_vwj4j")
+surface_material_override/0 = SubResource("StandardMaterial3D_1kc68")
+surface_material_override/1 = SubResource("StandardMaterial3D_rf1hr")
+surface_material_override/2 = SubResource("StandardMaterial3D_htkg4")
+surface_material_override/3 = SubResource("StandardMaterial3D_3is3v")
+surface_material_override/4 = SubResource("StandardMaterial3D_m8mii")
+surface_material_override/5 = SubResource("StandardMaterial3D_en2xy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.177239, 0, -0.984168, 0, 1, 0, 0.984168, 0, 0.177239, 0, 0, 0)
+shape = SubResource("CylinderShape3D_x8gro")

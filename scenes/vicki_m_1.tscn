@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsx2rfhmrg7y3"]
+
+[ext_resource type="ArrayMesh" uid="uid://cu8gnn8is0r2b" path="res://assets/m1_garand.obj" id="1_ksk5a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0m8n"]
+albedo_color = Color(0.220538, 0.107453, 0.017011, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4bse"]
+albedo_color = Color(0.219501, 0.219501, 0.219501, 1)
+metallic = 0.5
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2pmfj"]
+albedo_color = Color(0.406613, 0.326218, 0.266287, 1)
+
+[node name="vicki_m1" type="MeshInstance3D"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+visibility_range_end = 40.0
+mesh = ExtResource("1_ksk5a")
+surface_material_override/0 = SubResource("StandardMaterial3D_w0m8n")
+surface_material_override/1 = SubResource("StandardMaterial3D_a4bse")
+surface_material_override/2 = SubResource("StandardMaterial3D_2pmfj")

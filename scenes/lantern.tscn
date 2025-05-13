@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://du6lkfk48xpeg"]
+
+[ext_resource type="ArrayMesh" uid="uid://bdrrxibc7l7sf" path="res://assets/lantern.obj" id="1_hhuhv"]
+[ext_resource type="PackedScene" uid="uid://dlx6xhg1jy7d5" path="res://scenes/fire_particles.tscn" id="2_uxgnm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxgnm"]
+albedo_color = Color(0.114897, 0.114897, 0.114897, 1)
+metallic = 0.5
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdg25"]
+albedo_color = Color(0.113725, 0.113725, 0.113725, 1)
+metallic = 0.5
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6stn"]
+albedo_color = Color(0.733333, 0.709804, 0.552941, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4a08e"]
+size = Vector3(0.405518, 0.647705, 0.403732)
+
+[node name="lantern" type="StaticBody3D"]
+
+[node name="Lantern" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, -8.74228e-09, -8.74228e-09, -8.74228e-09, -0.1, 0, -8.74228e-09, 7.64274e-16, -0.1, 0, 0, 0)
+cast_shadow = 0
+visibility_range_end = 40.0
+mesh = ExtResource("1_hhuhv")
+surface_material_override/0 = SubResource("StandardMaterial3D_uxgnm")
+surface_material_override/1 = SubResource("StandardMaterial3D_jdg25")
+surface_material_override/2 = SubResource("StandardMaterial3D_y6stn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000854492, 0.0233154, -0.000846863)
+shape = SubResource("BoxShape3D_4a08e")
+
+[node name="fire_particles" parent="." instance=ExtResource("2_uxgnm")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.0738956, 0)
+layers = 2
+lifetime = 0.5
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0235732, 0)
+light_color = Color(1, 1, 0.886275, 1)
+light_energy = 1.07
+light_specular = 0.0
+light_cull_mask = 4294967293
+shadow_enabled = true
+shadow_opacity = 0.8
+distance_fade_enabled = true
+omni_range = 51.8542

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlx6xhg1jy7d5"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2hder"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.26
+gravity = Vector3(0, 1.25, 0)
+scale_min = 0.35
+scale_max = 0.61
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dqd0"]
+albedo_color = Color(0.941176, 0.694118, 0.329412, 1)
+metallic_specular = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_60l10"]
+material = SubResource("StandardMaterial3D_1dqd0")
+size = Vector3(0.001, 0.125, 0.125)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjnod"]
+albedo_color = Color(0.941176, 0.694118, 0.329412, 1)
+metallic_specular = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_wlkj6"]
+material = SubResource("StandardMaterial3D_sjnod")
+size = Vector3(0.125, 0.125, 0.001)
+
+[node name="fire_particles" type="GPUParticles3D"]
+cast_shadow = 0
+visibility_range_end = 40.0
+lifetime = 0.49
+speed_scale = 0.57
+randomness = 0.34
+trail_lifetime = 1.62
+process_material = SubResource("ParticleProcessMaterial_2hder")
+draw_passes = 2
+draw_pass_1 = SubResource("BoxMesh_60l10")
+draw_pass_2 = SubResource("BoxMesh_wlkj6")

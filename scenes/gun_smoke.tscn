@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://25af6vkg55da"]
+
+[ext_resource type="Script" uid="uid://muwi2kcs82h4" path="res://script/gun_smoke.gd" id="1_qutpa"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t87fh"]
+lifetime_randomness = 0.1
+emission_shape = 3
+emission_box_extents = Vector3(0.02, 0.02, 0.02)
+inherit_velocity_ratio = 1.0
+gravity = Vector3(0, 0.11, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qutpa"]
+albedo_color = Color(0.485703, 0.485704, 0.485703, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_tauel"]
+material = SubResource("StandardMaterial3D_qutpa")
+radius = 0.025
+height = 0.05
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qutpa"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_tauel"]
+noise = SubResource("FastNoiseLite_qutpa")
+
+[sub_resource type="FogMaterial" id="FogMaterial_qutpa"]
+density = 8.0
+albedo = Color(0, 0, 0, 1)
+density_texture = SubResource("NoiseTexture3D_tauel")
+
+[node name="gun smoke" type="Node3D"]
+script = ExtResource("1_qutpa")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.000645205)
+visible = false
+cast_shadow = 0
+visibility_range_end = 40.0
+amount = 50
+lifetime = 0.25
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_t87fh")
+draw_pass_1 = SubResource("SphereMesh_tauel")
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.00459648, 0.228351)
+visible = false
+strength = -82.74
+attenuation = 0.933033
+radius = 1.96193
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.998567, 1, 0.848357, 1)
+light_energy = 2.0
+omni_range = 2.32306
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00743103, 0.0103509, -0.855377)
+size = Vector3(0.112457, 0.106476, 1.71881)
+material = SubResource("FogMaterial_qutpa")

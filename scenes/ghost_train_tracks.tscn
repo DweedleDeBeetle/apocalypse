@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtenb3qvssxy3"]
+
+[ext_resource type="ArrayMesh" uid="uid://ocw3518e6vya" path="res://assets/ghost_train_tracks.obj" id="1_dl66r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o24pb"]
+size = Vector3(18.3397, 0.238281, 3.52832)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48lr2"]
+albedo_color = Color(0.321728, 0.321728, 0.321728, 1)
+metallic = 0.5
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kav1r"]
+albedo_color = Color(0.234205, 0.114309, 0.017375, 1)
+
+[node name="ghost_train_tracks" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000427246, -1.61363, -0.00634766)
+shape = SubResource("BoxShape3D_o24pb")
+
+[node name="GhostTrainTracks" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visibility_range_end = 40.0
+mesh = ExtResource("1_dl66r")
+surface_material_override/0 = SubResource("StandardMaterial3D_48lr2")
+surface_material_override/1 = SubResource("StandardMaterial3D_kav1r")

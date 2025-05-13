@@ -1,0 +1,337 @@
+[gd_scene load_steps=4 format=3 uid="uid://15yf158gokbp"]
+
+[ext_resource type="Script" uid="uid://8bw0y8fsm5hq" path="res://script/worktable_gui.gd" id="1_adum2"]
+[ext_resource type="Texture2D" uid="uid://dax3hle463jbd" path="res://assets/vicki_crosshair (1).png" id="1_splxh"]
+[ext_resource type="Texture2D" uid="uid://cu3p1hxqlfbdh" path="res://assets/blueprint paper.png" id="2_wg2f4"]
+
+[node name="worktableGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_adum2")
+
+[node name="BlueprintPaper" type="Sprite2D" parent="."]
+modulate = Color(0.666667, 0.666667, 0.666667, 0.509804)
+position = Vector2(320.166, 180.166)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_wg2f4")
+
+[node name="bars" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="reload" type="ProgressBar" parent="bars"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+offset_left = 153.0
+offset_top = 84.0
+offset_right = 488.0
+offset_bottom = 102.0
+max_value = 10.0
+value = 3.0
+show_percentage = false
+
+[node name="unload" type="ProgressBar" parent="bars"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+offset_left = 153.0
+offset_top = 134.0
+offset_right = 488.0
+offset_bottom = 152.0
+max_value = 10.0
+value = 3.0
+show_percentage = false
+
+[node name="ammo" type="ProgressBar" parent="bars"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+offset_left = 153.0
+offset_top = 184.0
+offset_right = 488.0
+offset_bottom = 202.0
+max_value = 8.0
+value = 3.0
+show_percentage = false
+
+[node name="damage" type="ProgressBar" parent="bars"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+offset_left = 153.0
+offset_top = 234.0
+offset_right = 488.0
+offset_bottom = 252.0
+max_value = 5.0
+value = 3.0
+show_percentage = false
+
+[node name="artifacts" type="ProgressBar" parent="bars"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+offset_left = 153.0
+offset_top = 284.0
+offset_right = 488.0
+offset_bottom = 302.0
+max_value = 3.0
+value = 3.0
+show_percentage = false
+
+[node name="labels" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="title" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 43.666
+offset_right = 380.0
+offset_bottom = 66.666
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.45098, 0.45098, 0.45098, 1)
+text = "Upgrade Table"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="reload" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 81.355
+offset_top = 77.651
+offset_right = 147.355
+offset_bottom = 108.651
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.450648, 0.450648, 0.450648, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "Reload Speed
+2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="unload" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 81.355
+offset_top = 128.481
+offset_right = 147.355
+offset_bottom = 159.481
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.450648, 0.450648, 0.450648, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "Firing Rate
+0.75"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammo" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 81.355
+offset_top = 177.586
+offset_right = 147.355
+offset_bottom = 208.586
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.450648, 0.450648, 0.450648, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "Ammo
+14"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="damage" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 81.355
+offset_top = 227.566
+offset_right = 147.355
+offset_bottom = 258.566
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.450648, 0.450648, 0.450648, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "Damage
+1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="artifacts" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 81.355
+offset_top = 278.786
+offset_right = 147.355
+offset_bottom = 309.786
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.450648, 0.450648, 0.450648, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "Artifacts
+0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scraps" type="Label" parent="labels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.6
+anchor_top = 0.00834999
+anchor_right = 4.6
+anchor_bottom = 0.00834999
+offset_left = 267.0
+offset_top = 43.666
+offset_right = 380.0
+offset_bottom = 66.666
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.45098, 0.45098, 0.45098, 1)
+text = "Scraps: "
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="reload" type="Button" parent="buttons"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 84.0
+offset_right = 525.0
+offset_bottom = 102.0
+
+[node name="VickiCrosshair" type="Sprite2D" parent="buttons/reload"]
+top_level = true
+position = Vector2(516.07, 92.73)
+texture = ExtResource("1_splxh")
+
+[node name="unload" type="Button" parent="buttons"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 134.0
+offset_right = 525.0
+offset_bottom = 152.0
+
+[node name="VickiCrosshair" type="Sprite2D" parent="buttons/unload"]
+top_level = true
+position = Vector2(516.07, 142.73)
+texture = ExtResource("1_splxh")
+
+[node name="ammo" type="Button" parent="buttons"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 184.0
+offset_right = 525.0
+offset_bottom = 202.0
+
+[node name="VickiCrosshair" type="Sprite2D" parent="buttons/ammo"]
+top_level = true
+position = Vector2(516.07, 192.73)
+texture = ExtResource("1_splxh")
+
+[node name="damage" type="Button" parent="buttons"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 234.0
+offset_right = 525.0
+offset_bottom = 252.0
+
+[node name="VickiCrosshair" type="Sprite2D" parent="buttons/damage"]
+top_level = true
+position = Vector2(516.07, 242.73)
+texture = ExtResource("1_splxh")
+
+[node name="artifacts" type="Button" parent="buttons"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 284.0
+offset_right = 525.0
+offset_bottom = 302.0
+
+[node name="VickiCrosshair" type="Sprite2D" parent="buttons/artifacts"]
+top_level = true
+position = Vector2(516.07, 292.73)
+texture = ExtResource("1_splxh")
+
+[node name="cost" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="reload" type="Label" parent="cost"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 77.651
+offset_right = 577.0
+offset_bottom = 108.651
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.450648, 0.450648, 0.450648, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="unload" type="Label" parent="cost"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 128.481
+offset_right = 577.0
+offset_bottom = 159.481
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.450648, 0.450648, 0.450648, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammo" type="Label" parent="cost"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 177.586
+offset_right = 577.0
+offset_bottom = 208.586
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.450648, 0.450648, 0.450648, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="damage" type="Label" parent="cost"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 227.566
+offset_right = 577.0
+offset_bottom = 258.566
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.450648, 0.450648, 0.450648, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="artifacts" type="Label" parent="cost"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 278.786
+offset_right = 577.0
+offset_bottom = 309.786
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.450648, 0.450648, 0.450648, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 10
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="buttons/reload" to="." method="_on_reload_pressed"]
+[connection signal="pressed" from="buttons/unload" to="." method="_on_unload_pressed"]
+[connection signal="pressed" from="buttons/ammo" to="." method="_on_ammo_pressed"]
+[connection signal="pressed" from="buttons/damage" to="." method="_on_damage_pressed"]
+[connection signal="pressed" from="buttons/artifacts" to="." method="_on_artifacts_pressed"]

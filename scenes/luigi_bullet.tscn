@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b654514qks67u"]
+
+[ext_resource type="ArrayMesh" uid="uid://dp8sedcjcaj1l" path="res://assets/bullet1.obj" id="1_0orq4"]
+[ext_resource type="Script" uid="uid://bs1ga042osa4e" path="res://script/luigi_bullet.gd" id="1_pkyfh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_saegv"]
+height = 2.24333
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_assmm"]
+albedo_color = Color(0.360206, 0.299921, 0, 1)
+metallic = 0.44
+roughness = 0.45
+
+[node name="luigi_bullet" type="Area3D"]
+script = ExtResource("1_pkyfh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-16, 4.37114e-09, 0.1, 0.1, -4.37114e-09, 0, 4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_saegv")
+
+[node name="Bullet1" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.77671e-16, -1.09278e-08, 0.25, -0.25, -1.09278e-08, 0, 1.09278e-08, -0.25, -1.09278e-08, 0, 0, 0.0314511)
+mesh = ExtResource("1_0orq4")
+surface_material_override/0 = SubResource("StandardMaterial3D_assmm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
